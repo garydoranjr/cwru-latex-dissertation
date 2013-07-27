@@ -1,0 +1,63 @@
+\documentclass[]{cwru} % Use `singlespaced` option to make the mainmatter text single-spaced
+\usepackage{lipsum}
+
+\title{A Long Document That Will Be Read By At Most Ten People}
+\author{Ima Student}
+\date{May, 2014} % Graduate Date
+\degree{Doctor of Philosophy}
+\advisor{Dr.\ Givesme Worktodo}
+\department{Positive Thinking}
+
+\defensedate{April 27, 2014}
+% By default, commitee chair is advisor,
+% but you can override it
+%\committeechair{Dr.\ Some Otherperson}
+
+% Add up to 5 committee members
+\committee{Dr.\ Clive Buttertable}
+\committee{Dr.\ Bentley Hubspith}
+\committee{Dr.\ Malcolm-Jamal Warner}
+\committee{Dr.\ Cartright Dimaggio}
+
+\begin{document}
+
+% The organization of the dissertation must follow the order below:
+% 
+% Title page
+% Committee Approval Sheet
+% Copyright page (only if copyrighting)
+% Dedication page (optional)
+% Table of Contents
+% List of Tables
+% List of Figures
+% Preface (optional)
+% Acknowledgements (optional)
+% List of Abbreviations (optional)
+% Glossary (optional)
+% Abstract
+% --TEXT--
+% Appendix
+% Bibliography
+
+\maketitle
+\makeapprovalsheet
+
+\frontmatter
+\tableofcontents
+\listoftables
+\listoffigures
+
+\begin{acknowledgements}
+\lipsum[1-3]
+\end{acknowledgements}
+
+\begin{abstract}
+% "Dissertation abstracts must not exceed 350 words, thesis abstracts 150."
+\lipsum[1-1]
+\end{abstract}
+
+\mainmatter
+\chapter{Introduction}
+\lipsum[1-10]
+
+\end{document}
