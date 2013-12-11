@@ -15,6 +15,8 @@
 
 \LoadClass[12pt,a4paper,oneside]{book}
 
+\RequirePackage{hyperref}
+\hypersetup{pdfborder=0 0 0,pdfview=FitH}
 \RequirePackage[top=1in,bottom=1in,left=1.5in,right=1in]{geometry}
 \RequirePackage{setspace}
 \RequirePackage{array}
@@ -154,11 +156,11 @@ any proprietary material contained therein.
 }
 
 \newenvironment{acknowledgements}%
-{\cleardoublepage\chapter*{Acknowledgements}\markboth{ACKNOWLEDGEMENTS}{}}%
+{\cleardoublepage\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}\markboth{ACKNOWLEDGEMENTS}{}}%
 {\null}
 
 \newenvironment{abstract}%
-{\cleardoublepage\thispagestyle{plain}\null\vfill\begin{center}%
+{\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Abstract}\thispagestyle{plain}\null\vfill\begin{center}%
 \begin{spacing}{2.0}
     {\large \@title \par}%
     \vskip 3em%
