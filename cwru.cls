@@ -1,6 +1,7 @@
 %
 % Class for typesetting CWRU Dissertations
-% by Gary Doran (gary.doran@case.edu)
+% Copyright 2013, Gary Doran (gary.doran@case.edu)
+% Distributed under the terms of the GNU Lesser General Public License
 % Uses guidelines from http://gradstudies.case.edu/current/etd/guidelines.html
 %
 
