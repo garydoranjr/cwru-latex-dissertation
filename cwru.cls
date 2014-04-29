@@ -100,14 +100,22 @@
 %Alsways define the advisor first
 \newbox\@committeeMembers \newbox\@committeeMembers
 
-\def\advisor#1{\setbox\@committeeMembers\vbox 
-	\onehalfspacing
-	{\large \centering{Approved by}  \par 
+\def\advisor#1{\setbox\@committeeMembers\vbox{ 
+	
+	\large
+	\begin{centering}
 	\singlespacing
-	\centering{#1} \renewcommand\baselinestretch{1.0}
-	\par \centering{Committee Chair}}
+	Approved by 
+	\par 
+	#1
+	\par
+	Committee Chair
+	\par
+	\doublespacing
+	\end{centering}
+	}
   	\setbox\@committeeMembers\vbox{\unvbox\@committeeMembers
-    \vskip\baselineskip \def\baselinestretch{1}\@normalsize }}
+    \vskip\baselineskip \def\baselinestretch{1}\@normalsize}}
 
 
 
@@ -126,19 +134,19 @@
 CASE WESTERN RESERVE UNIVERSITY \\
 SCHOOL OF GRADUATE STUDIES
 }
-\vskip 2em%
+\par
 {\large %
 We hereby approve the thesis/dissertation of
 \par
-{\Large \texttt{\@author}}}
-
-\newlength\degreewidth%
-\settowidth{\degreewidth}{candidate for the degree*.}%
-\addtolength{\degreewidth}{-\textwidth}%
-\setlength{\degreewidth}{-\degreewidth}%
-\noindent candidate for the
+{\Large \@author}}
+%\newlength\degreewidth%
+%\settowidth{\degreewidth}{candidate for the degree*.}%
+%\addtolength{\degreewidth}{-\textwidth}%
+%\setlength{\degreewidth}{-\degreewidth}%
 \par
-\Large\texttt{\@degree} 
+candidate for the
+\par
+\large{\@degree} 
 
 %\newlength\datewidth%
 %\settowidth{\datewidth}{(date)\quad}%
@@ -165,14 +173,13 @@ We hereby approve the thesis/dissertation of
 %\noindent\hskip\datewidth\begin{tabular}[t]{>{\centering\arraybackslash}p{\committeewidth}}
 %{\Large\texttt{\csname @committeemember5\endcsname}} \\ \hline \end{tabular} \\
 %\end{spacing}
-
+\vfill
 %\vskip 2em%
 %\noindent
-{\large\texttt{\@defensedate}}
-
+{\large{\@defensedate}}
+\par
 \noindent *We also certify that written approval has been obtained for
 any proprietary material contained therein.
-
 \end{center}
 \end{spacing}
 \end{titlepage}
@@ -181,6 +188,27 @@ any proprietary material contained therein.
 \newenvironment{acknowledgements}%
 {\cleardoublepage\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}\markboth{ACKNOWLEDGEMENTS}{}}%
 {\null}
+
+
+\newenvironment{proposalsummary}%
+{\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Proposal Summary}\thispagestyle{plain}\null\vfill\begin{center}%
+\begin{spacing}{2.0}
+    {\large \@title \par}%
+    \vskip 3em%
+     \lineskip 3em%
+      Abstract \\
+      by \\
+    {\large
+     \lineskip 3em%
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+\end{spacing}
+\end{center}}
+{\vfill\null}
+
+
+
 
 \newenvironment{abstract}%
 {\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Abstract}\thispagestyle{plain}\null\vfill\begin{center}%
