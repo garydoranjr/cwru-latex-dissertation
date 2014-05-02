@@ -11,8 +11,11 @@
 \ProvidesClass{cwru}[2013/08/01 v1.0 CWRU Dissertation Format]
 
 \newif\if@notsinglespaced
+\newif\if@proposal
+\@proposalfalse
 \@notsinglespacedtrue
 \DeclareOption{singlespaced}{\@notsinglespacedfalse}
+\DeclareOption{proposal}{\@proposaltrue}
 \ProcessOptions
 
 \LoadClass[12pt,letter,oneside]{book}
@@ -65,7 +68,11 @@
       \end{tabular}\par%
       \vskip 2em%
       Submitted in partial fulfillment of the requirements \\
-      for the degree of \@degree \\
+\if@proposal
+  for the dissertation proposal \\
+  \else
+  for the degree of \@degree \\
+\fi
       \vskip 2em%
       %Dissertation Advisor: \@advisor \\
       %\vskip 2em%
@@ -136,7 +143,11 @@ SCHOOL OF GRADUATE STUDIES
 }
 \par
 {\large %
-We hereby approve the thesis/dissertation of
+\if@proposal
+  We hereby approve the proposal of \\
+  \else
+  We hereby approve the \@degree of \\
+\fi
 \par
 {\Large \@author}}
 %\newlength\degreewidth%
@@ -144,7 +155,7 @@ We hereby approve the thesis/dissertation of
 %\addtolength{\degreewidth}{-\textwidth}%
 %\setlength{\degreewidth}{-\degreewidth}%
 \par
-candidate for the
+candidate for a
 \par
 \large{\@degree} 
 
@@ -191,13 +202,17 @@ any proprietary material contained therein.
 
 
 \newenvironment{proposalsummary}%
-{\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Proposal Summary}\thispagestyle{plain}\null\vfill\begin{center}%
+{\cleardoublepage\addcontentsline{toc}{chapter}{Proposal Summary}\thispagestyle{plain}\null\vfill\begin{center}%
 \begin{spacing}{2.0}
     {\large \@title \par}%
     \vskip 3em%
      \lineskip 3em%
-      Abstract \\
-      by \\
+\if@proposal
+  Proposal Summary \\
+  \else
+  Abstract \\ 
+\fi
+	by \\
     {\large
      \lineskip 3em%
       \begin{tabular}[t]{c}%
@@ -211,14 +226,17 @@ any proprietary material contained therein.
 
 
 \newenvironment{abstract}%
-{\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Abstract}\thispagestyle{plain}\null\vfill\begin{center}%
+{\cleardoublepage\addcontentsline{toc}{chapter}{Abstract}\thispagestyle{plain}\null\vfill\begin{center}\markboth{ABSTRACT}{}%
 \begin{spacing}{2.0}
     {\large \@title \par}%
     \vskip 3em%
      \lineskip 3em%
-      Abstract \\
-      by \\
-    {\large
+\if@proposal
+  Proposal Summary \\
+  \else
+  Abstract \\ 
+\fi
+	by \\    {\large
      \lineskip 3em%
       \begin{tabular}[t]{c}%
         \@author
@@ -226,5 +244,10 @@ any proprietary material contained therein.
 \end{spacing}
 \end{center}}
 {\vfill\null}
+
+
+
+
+
 
 \endinput
