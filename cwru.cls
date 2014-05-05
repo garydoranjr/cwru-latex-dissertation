@@ -21,7 +21,7 @@
 \LoadClass[12pt,letter,oneside]{book}
 
 \RequirePackage{hyperref}
-\hypersetup{pdfborder=0 0 0,pdfview=FitH}
+\hypersetup{pdfborder=0 0 0} %,pdfview=FitH}
 \RequirePackage[top=1in,bottom=1in,left=1.5in,right=1in]{geometry}
 \RequirePackage{setspace}
 \RequirePackage{array}
@@ -134,7 +134,7 @@
   \vskip\baselineskip \def\baselinestretch{1}\@normalsize }}
 
 
-\newcommand\makeapprovalsheet{\begin{titlepage}
+\newcommand\makeapprovalsheet{\newpage
 \begin{spacing}{2.0}
 \begin{center}
 {\large\bfseries
@@ -193,7 +193,7 @@ candidate for a
 any proprietary material contained therein.
 \end{center}
 \end{spacing}
-\end{titlepage}
+\newpage
 }
 
 \newenvironment{acknowledgements}%
@@ -201,32 +201,9 @@ any proprietary material contained therein.
 {\null}
 
 
-\newenvironment{proposalsummary}%
-{\cleardoublepage\addcontentsline{toc}{chapter}{Proposal Summary}\thispagestyle{plain}\null\vfill\begin{center}%
-\begin{spacing}{2.0}
-    {\large \@title \par}%
-    \vskip 3em%
-     \lineskip 3em%
-\if@proposal
-  Proposal Summary \\
-  \else
-  Abstract \\ 
-\fi
-	by \\
-    {\large
-     \lineskip 3em%
-      \begin{tabular}[t]{c}%
-        \@author
-      \end{tabular}\par}%
-\end{spacing}
-\end{center}}
-{\vfill\null}
-
-
-
-
+%{\cleardoublepage\addcontentsline{toc}{chapter}{Abstract}\phantomsection\thispagestyle{plain}\null\vfill\begin{center}\markboth{ABSTRACT}{}%
 \newenvironment{abstract}%
-{\cleardoublepage\addcontentsline{toc}{chapter}{Abstract}\thispagestyle{plain}\null\vfill\begin{center}\markboth{ABSTRACT}{}%
+{\addcontentsline{toc}{chapter}{Abstract}\thispagestyle{plain}\null\vfill\begin{center}\markboth{ABSTRACT}{}%
 \begin{spacing}{2.0}
     {\large \@title \par}%
     \vskip 3em%
