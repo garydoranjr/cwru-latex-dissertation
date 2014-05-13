@@ -19,13 +19,14 @@
 \ProcessOptions
 
 \LoadClass[12pt,letter,oneside]{book}
-
-\RequirePackage{hyperref}
-\hypersetup{pdfborder=0 0 0} %,pdfview=FitH}
 \RequirePackage[top=1in,bottom=1in,left=1.5in,right=1in]{geometry}
 \RequirePackage{setspace}
 \RequirePackage{array}
 \RequirePackage{fancyhdr}
+\RequirePackage{caption,subfig}
+\RequirePackage{hyperref}
+\hypersetup{pdfborder=0 0 0} %,pdfview=FitH}
+
 \pagestyle{fancy}
 \if@notsinglespaced
   \doublespacing
