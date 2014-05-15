@@ -204,7 +204,18 @@ any proprietary material contained therein.
 
 %{\cleardoublepage\addcontentsline{toc}{chapter}{Abstract}\phantomsection\thispagestyle{plain}\null\vfill\begin{center}\markboth{ABSTRACT}{}%
 \newenvironment{abstract}%
-{\newpage\cleardoublepage\phantomsection\addcontentsline{toc}{chapter}{Abstract}\thispagestyle{plain}\null\vfill\begin{center}\markboth{ABSTRACT}{}%
+{\newpage\cleardoublepage\phantomsection
+\if@proposal
+  \addcontentsline{toc}{chapter}{Summary}
+  \else
+  \addcontentsline{toc}{chapter}{Abstract} 
+\fi
+\thispagestyle{plain}\null\vfill\begin{center}
+\if@proposal
+  \markboth{Summary}{}
+  \else
+  \markboth{Abstract}{}
+\fi
 \begin{spacing}{2.0}
     {\large \@title \par}%
     \vskip 3em%
