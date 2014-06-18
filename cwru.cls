@@ -34,6 +34,9 @@
 
 \def\degree#1{\gdef\@degree{#1}}
 \def\@degree{\@latex@warning@no@line{No \noexpand\degree given}}
+
+\def\doctype#1{\gdef\@doctype{#1}}
+\def\@doctype{\@latex@warning@no@line{No \noexpand\doctype given}}
 %\def\advisor#1{\gdef\@advisor{#1}}
 %\def\@advisor{\@latex@warning@no@line{No \noexpand\advisor given}}
 \def\department#1{\gdef\@department{#1}}
@@ -108,29 +111,17 @@
 %Alsways define the advisor first
 \newbox\@committeeMembers \newbox\@committeeMembers
 
-\def\advisor#1{\setbox\@committeeMembers\vbox{ 
-	
-	\large
-	\begin{centering}
-	\singlespacing
-	Approved by 
-	\par 
-	#1
-	\par
-	Committee Chair
-	\par
-	\doublespacing
-	\end{centering}
-	}
-  	\setbox\@committeeMembers\vbox{\unvbox\@committeeMembers
-    \vskip\baselineskip \def\baselinestretch{1}\@normalsize}}
-
-
+\def\advisor#1{\setbox\@committeeMembers\vbox
+  {\unvbox\@committeeMembers \vskip 10pt% plus 1fil minus 1fil
+  \centering \def\baselinestretch{1}
+  {\centering{\textsf{Committee Chair}} \par \centering{\textsf{\textbf{#1}}}}}
+  \setbox\@committeeMembers\vbox{\unvbox\@committeeMembers
+  \vskip\baselineskip \def\baselinestretch{1}\@normalsize }}
 
 \def\committee#1{\setbox\@committeeMembers\vbox
   {\unvbox\@committeeMembers \vskip 10pt% plus 1fil minus 1fil
-  \centering \def\baselinestretch{1}\large 
-  {\centering{Approved by} \par \centering{#1}}}
+  \centering \def\baselinestretch{1}
+  {\centering{\textsf{Committee Member}} \par \centering{\textsf{\textbf{#1}}}}}
   \setbox\@committeeMembers\vbox{\unvbox\@committeeMembers
   \vskip\baselineskip \def\baselinestretch{1}\@normalsize }}
 
@@ -139,59 +130,33 @@
 \begin{spacing}{2.0}
 \begin{center}
 {\large\bfseries
-CASE WESTERN RESERVE UNIVERSITY \\
-SCHOOL OF GRADUATE STUDIES
+\textsf{CASE WESTERN RESERVE UNIVERSITY \\
+SCHOOL OF GRADUATE STUDIES}
 }
 \par
-{\large %
+\vspace{1em}
+{\textsf{
 \if@proposal
   We hereby approve the proposal of \\
   \else
-  We hereby approve the \@degree of \\
+  We hereby approve the \@doctype{} of \\
 \fi
+}
 \par
-{\Large \@author}}
-%\newlength\degreewidth%
-%\settowidth{\degreewidth}{candidate for the degree*.}%
-%\addtolength{\degreewidth}{-\textwidth}%
-%\setlength{\degreewidth}{-\degreewidth}%
+\textsf{\Large \@author}}
 \par
-candidate for a
-\par
-\large{\@degree} 
+\textsf{candidate for the degree of \textbf{\@degree{}}*.}
+\vspace{2em}
 
-%\newlength\datewidth%
-%\settowidth{\datewidth}{(date)\quad}%
-%\newlength\committeewidth%
-%\setlength{\committeewidth}{\textwidth}%
-%\addtolength{\committeewidth}{-\datewidth}%
-%\begin{spacing}{1.25}%
-%\noindent\hskip\datewidth\begin{tabular}[t]{>{\centering\arraybackslash}p{\committeewidth}}
-%{\Large\texttt{\@committeechair}} \\ \hline 
 \unvcopy\@committeeMembers
 
-%\noindent\hskip\datewidth\begin{tabular}[t]{>{\centering\arraybackslash}p{\committeewidth}}
-%{\Large\texttt{\csname @committeemember1\endcsname}} \\ \hline \end{tabular} \\
-
-%\noindent\hskip\datewidth\begin{tabular}[t]{>{\centering\arraybackslash}p{\committeewidth}}
-%{\Large\texttt{\csname @committeemember2\endcsname}} \\ \hline \end{tabular} \\
-
-%\noindent\hskip\datewidth\begin{tabular}[t]{>{\centering\arraybackslash}p{\committeewidth}}
-%{\Large\texttt{\csname @committeemember3\endcsname}} \\ \hline \end{tabular} \\
-
-%\noindent\hskip\datewidth\begin{tabular}[t]{>{\centering\arraybackslash}p{\committeewidth}}
-%{\Large\texttt{\csname @committeemember4\endcsname}} \\ \hline \end{tabular} \\
-
-%\noindent\hskip\datewidth\begin{tabular}[t]{>{\centering\arraybackslash}p{\committeewidth}}
-%{\Large\texttt{\csname @committeemember5\endcsname}} \\ \hline \end{tabular} \\
-%\end{spacing}
 \vfill
 %\vskip 2em%
 %\noindent
-{\large{\@defensedate}}
-\par
-\noindent *We also certify that written approval has been obtained for
-any proprietary material contained therein.
+{\centering{\textsf{Date of Defense}} \par \centering{\textsf{\textbf{\@defensedate}}}}
+\vfill
+\noindent \small{*We also certify that written approval has been obtained \\
+for any proprietary material contained therein.}
 \end{center}
 \end{spacing}
 \newpage
