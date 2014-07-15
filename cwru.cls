@@ -162,12 +162,11 @@ for any proprietary material contained therein.}
 \newpage
 }
 
-\newenvironment{acknowledgements}%
-{\cleardoublepage\chapter*{Acknowledgements}\addcontentsline{toc}{chapter}{Acknowledgements}\markboth{ACKNOWLEDGEMENTS}{}}%
+\newenvironment{acknowledgments}%
+{\cleardoublepage\chapter*{Acknowledgments}\addcontentsline{toc}{chapter}{Acknowledgments}\markboth{ACKNOWLEDGMENTS}{}}%
 {\null}
 
 
-%{\cleardoublepage\addcontentsline{toc}{chapter}{Abstract}\phantomsection\thispagestyle{plain}\null\vfill\begin{center}\markboth{ABSTRACT}{}%
 \newenvironment{abstract}%
 {\newpage\cleardoublepage\phantomsection
 \if@proposal
@@ -175,7 +174,7 @@ for any proprietary material contained therein.}
   \else
   \addcontentsline{toc}{chapter}{Abstract} 
 \fi
-\thispagestyle{plain}\null\vfill\begin{center}
+\thispagestyle{plain}\begin{center}
 \if@proposal
   \markboth{Summary}{}
   \else
