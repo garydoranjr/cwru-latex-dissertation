@@ -23,7 +23,6 @@
 \RequirePackage{setspace}
 \RequirePackage{array}
 \RequirePackage{fancyhdr}
-\RequirePackage{caption,subfig}
 \RequirePackage{hyperref}
 \hypersetup{pdfborder=0 0 0} %,pdfview=FitH}
 
@@ -62,28 +61,28 @@
   \null\vfil
   \vskip 60\p@
   \begin{center}%
-    {\LARGE \@title \par}%
+    {\Large\bfseries \textsf{\MakeUppercase{\@title}} \par}%
     \vskip 3em%
     {\large
      \lineskip 3em%
-      by \\
+      {\bfseries\textsf{by}} \\
       \begin{tabular}[t]{c}%
-        \@author
+        {\bfseries \textsf{\MakeUppercase{\@author}}}
       \end{tabular}\par%
       \vskip 2em%
-      Submitted in partial fulfillment of the requirements \\
+      \textsf{Submitted in partial fulfillment of the requirements} \\
 \if@proposal
-  for the dissertation proposal \\
+  \textsf{for the dissertation proposal} \\
   \else
-  for the degree of \@degree \\
+  \textsf{for the degree of \@degree} \\
 \fi
       \vskip 2em%
       %Dissertation Advisor: \@advisor \\
       %\vskip 2em%
-      Department of \@department \\
-      CASE WESTERN RESERVE UNIVERSITY \\
+      \textsf{Department of \@department} \\
+      \textsf{CASE WESTERN RESERVE UNIVERSITY} \\
       \vskip 2em%
-      \@date \par}
+      \textsf{\@date} \par}
   \end{center}\par
   \@thanks
   \vfil\null
@@ -127,6 +126,7 @@
 
 
 \newcommand\makeapprovalsheet{\newpage
+\thispagestyle{empty}
 \begin{spacing}{2.0}
 \begin{center}
 {\large\bfseries
@@ -180,23 +180,24 @@ for any proprietary material contained therein.}
   \else
   \markboth{Abstract}{}
 \fi
-\begin{spacing}{2.0}
+\begin{spacing}{1.5}
     {\large \@title \par}%
-    \vskip 3em%
-     \lineskip 3em%
+    \vspace{-1.5em}
+    \vskip 2em%
+     \lineskip 2em%
 \if@proposal
   Proposal Summary \\
   \else
   Abstract \\ 
 \fi
-	by \\    {\large
-     \lineskip 3em%
+	by \\    {%\large
+     \lineskip 2em%
       \begin{tabular}[t]{c}%
-        \@author
+        \MakeUppercase{\@author}
       \end{tabular}\par}%
 \end{spacing}
-\end{center}}
-{\vfill\null}
+\end{center}\vspace{-1.5em}}
+{\vfill\@gobble\null}
 
 
 
